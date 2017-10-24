@@ -1,0 +1,51 @@
+MarDRe
+------
+
+MarDRe is a de novo MapReduce-based parallel tool to remove duplicate
+DNA reads. Duplicate reads can be seen as identical or nearly identical 
+sequences with some mismatches. This tool allows bioinformatics to avoid
+the analysis of not necessary reads, reducing the time of subsequent 
+procedures with the dataset (e.g., assemblies, mappings, etc.).
+
+This tool is distributed as free software and is publicly available under 
+the GPLv3 license at http://mardre.des.udc.es.
+
+
+Quick User's Guide
+------------------
+
+- Prerequisites
+
+1) Make sure you have Java Runtime Environment (JRE) version 1.7 or above
+
+2) Make sure you have a working Hadoop distribution version 2.2 or above
+
+  2.1) HADOOP_HOME environmental variable must be set accordingly
+
+3) Untar the downloaded MarDRe distribution:
+
+  3.1) On Linux/Mac OS, just follow the instructions below:
+
+      $ tar xzf MarDRe-v1.2.tgz
+
+  3.2) Alternatively use your preferred archive extraction tool
+
+4) Set MARDRE_HOME and PATH environmental variables:
+
+  4.1) On Linux/Mac OS you can set them in your profile or your shell 
+       configuration files (e.g., .bashrc). Follow the instructions below:
+
+      $ export MARDRE_HOME=/path/to/mardre
+      $ export PATH=$MARDRE_HOME/bin:$PATH
+
+- Execution:
+
+The following command removes the duplicates of identical reads (no mismatches)
+of a single-end dataset using a prefix length of 15 and 8 reducers:
+
+  $ mardrerun -i dataset.fastq -l 15 -nr 8
+
+The following command shows a similar example but for paired-end computing,
+allowing two mismatches and using the default prefix length (20) and 8 reducers:
+
+  $ mardrerun -i dataset1.fastq -p dataset2.fastq -m 2 -nr 8

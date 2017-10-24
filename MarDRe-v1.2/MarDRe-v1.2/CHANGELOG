@@ -1,0 +1,69 @@
+MarDRe Changelog
+----------------
+This file briefly describes the main changes for each version of
+the MarDRe software package.
+
+MarDRe v1.2 - 2017/07/28
+------------------------
+A point release for the MarDRe 1.x line
+
+	- Optimized paired-end mode using a map-side join (enabled by default)
+
+	- Support for input/output datasets compressed with Gzip (.gz extension)
+	and BZip2 (.bz2 extension) codecs. Read user's guide for more information
+	
+	- New command-line options (-q and -f) to specify the input file format
+	for compressed datasets
+
+	- The user can decide to compare only a certain number of bases for each
+	read using a new command-line option (-c)
+	
+	- The number of reducers can now be specified using a new command-line 
+	option (-nr)
+		
+	- New configuration parameter to enable Snappy compression of the map
+	output phase
+	
+	- New configuration parameter to specify HDFS block replication factor 
+	for output sequence files
+	
+	- New configuration parameter to specify the HDFS base path used by MarDRe
+	to store both the output and intermediate files
+	
+	- Fix bug in paired-end mode when processing FASTA datasets
+
+
+MarDRe v1.1 - 2017/05/15
+------------------------
+A point release for the MarDRe 1.x line
+
+	- Overall performance enhancements by reducing memory footprint, GC overhead
+	and sequence parsing
+	
+	- Optimized paired-end mode
+
+	- When two FASTQ reads are collapsed, now the one with the highest average 
+	quality is kept
+
+	- The user can specify the output file names using new command-line 
+	options (-o and -r)
+	
+	- Sanity checks for the value of some configuration parameters
+	
+	- Minor bug fixes
+
+
+MarDRe v1.0.1 - 2017/03/29
+--------------------------
+A point release for the MarDRe 1.x line
+
+	- User's guide has been updated to specify that the current version of MarDRe 
+	does not take into account the quality scores for selecting the representative 
+	sequence when duplicated
+
+	- Fix bug with the distribution tarball to include the parent directory
+
+
+MarDRe v1.0 - 2017/02/01
+------------------------
+The first public release of MarDRe
